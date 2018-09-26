@@ -11,7 +11,8 @@ const workshopSchema = new Schema({
         curriculum: String,
         connection: String
       }
-    ]
+    ],
+    saved:{type: Boolean, default:false}
   });
 
   const Workshop = mongoose.model("Workshop", workshopSchema)

@@ -1,0 +1,27 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    color:#021D5A;
+    background-image: url("./images/woodBackground.jpg")
+}
+
+h5{
+    font-weight: bold;
+}
+
+
+#descriptionDesc{
+    font-weight:bold;
+    text-align: center;
+    margin: 20px;
+}
+
+.connectionDesc{
+    font-weight:bold;
+    text-align:center;
+    margin:20px;
+
+}
+
+.gradeDesc, .topicDesc, .curriculumDesc{
+    margin-bottom: 20px;
+}
