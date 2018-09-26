@@ -1,22 +1,5 @@
 $(document).ready(function () {
 
-  // function getWorkshops() {
-  //   $(".testClass").empty();
-  //   $.getJSON("/api/all", function (data) {
-  //     // For each one
-  //     for (var i = 0; i < data.length; i++) {
-  //       // Display the apropos information on the page
-  //       $(".testClass").append
-  //       (`<div data-id="${data[i]._id}">
-  //       <h3>${data[i].title}</h3>
-  //       <p>${data[i].description}</p>
-  //       <button id="${data[i]._id}">Save</button>
-  //       `);
-
-  //       console.log(data[i])
-  //     }
-  //   });
-  // };
 
   function getWorkshops() {
     $(".accordion").empty();

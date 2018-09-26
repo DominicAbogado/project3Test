@@ -14,6 +14,29 @@ app.get("/api/all", function(req, res) {
     });
 });
 
+app.get("/api/users", function(req,res){
+  db.Profile.find({})
+  .then(function(dbUsers){
+    res.json(dbUsers);
+  })
+  .catch(function(err){
+    res.json(err)
+  });
+});
+
+app.get('/api/users/_id',function(req,res){
+  db.Profile.find({
+      where:{
+          uid:req.params._id
+      }
+  }).then(function(data){
+      
+      //send user data to html and js file [data]
+      res.json(data);
+      
+  })
+});
+
 app.get("/api/:_id", function(req, res) {
   db.Workshop.findById({
     _id: req.params._id
@@ -52,9 +75,8 @@ app.get("/api/workshop/connection/:connection", function(req, res) {
     });
 });
 
-
 //USER PROFILE
-app.post("/api/userProfiles", function (req, res) {
+app.post("/api/users", function (req, res) {
   db.Profile.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -86,12 +108,5 @@ app.post("/api/userProfiles", function (req, res) {
 //     res.json(dbBooking)
 //   });
 // });
-
-app.post("/api/users", function(req, res){
-  db.User.create({
-    email: req.body.email,
-    password: req.body.password
-  }).then
-})
 
 };

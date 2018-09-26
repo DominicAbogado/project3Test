@@ -10,7 +10,7 @@ const profileSchema = new Schema({
   schoolAddress: { type: String, required: true },
   city: { type: String, required: true },
   province: { type: String, required: true },
-  postal: { type: String, required: true }
+  postal: { type: String, required: true },
   });
 
   const Profile = mongoose.model("Profile", profileSchema)

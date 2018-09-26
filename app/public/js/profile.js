@@ -1,3 +1,4 @@
+
 $(".add-btn").on("click", function(event){
     event.preventDefault();
 
@@ -9,19 +10,20 @@ $(".add-btn").on("click", function(event){
         contactNum: $("#contactNumberProfile").val().trim(),
         schoolName: $("#schoolNameProfile").val(),
         schoolAddress: $("#schoolAddressProfile").val(),
-        city: $("#cityProfile").val().trim,
+        city: $("#cityProfile").val().trim(),
         province: $("#provinceProfile").val().trim(),
-        postal: $("#postalProfile").val().trim()
+        postal: $("#postalProfile").val().trim(),
+        uid: uid
     };
 
-    $.post("/api/userProfiles", newProfile, function(data){
+    $.post("/api/users", newProfile, function(data){
         console.log(data);
-        window.location.replace("http://localhost:3000/index.html")
+        console.log("working")
     });
 
     $("#firstNameProfile").val("");
     $("#lastNameProfile").val("");
-    $("#emailProfile").val().trim("");
+    $("#emailProfile").val("");
     $("#contactNumberProfile").val("");
     $("#schoolNameProfile").val("");
     $("#schoolAddressProfile").val("");
