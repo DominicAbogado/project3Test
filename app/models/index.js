@@ -3,5 +3,5 @@
 module.exports = {
   Booking: require("./Booking"),
   Workshop: require("./Workshop"),
-  User: require("./User")
+  Profile: require("./Profile")
 };

@@ -26,6 +26,7 @@ app.get("/api/:_id", function(req, res) {
     });
 });
 
+
 app.get("/api/workshop/offering/:grade", function(req, res) {
   console.log(req.params.grade);
   db.Workshop.find({
@@ -39,7 +40,7 @@ app.get("/api/workshop/offering/:grade", function(req, res) {
     });
 });
 
-app.get("/api/workshop/offering/:connection", function(req, res) {
+app.get("/api/workshop/connection/:connection", function(req, res) {
   db.Workshop.find({
     "offerings.connection":req.params.connection
   })
@@ -52,21 +53,39 @@ app.get("/api/workshop/offering/:connection", function(req, res) {
 });
 
 
-app.post("/api/bookings", function(req,res){
-  db.Booking.create({
-    firstName:req.body.firstName,
+//USER PROFILE
+app.post("/api/userProfiles", function (req, res) {
+  db.Profile.create({
+    firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
+    contactNum: req.body.contactNum,
     schoolName: req.body.schoolName,
     schoolAddress: req.body.schoolAddress,
-    grade: req.body.grade,
-    classSize: req.body.classSize,
-    selection: req.body.selection
-  })
-  .then(function(dbBooking){
-    res.json(dbBooking)
+    city: req.body.city,
+    province: req.body.city,
+    postal: req.body.postal
   });
+  res.sendStatus(200);
 });
+
+
+
+// app.post("/api/bookings", function(req,res){
+//   db.Booking.create({
+//     firstName:req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     schoolName: req.body.schoolName,
+//     schoolAddress: req.body.schoolAddress,
+//     grade: req.body.grade,
+//     classSize: req.body.classSize,
+//     selection: req.body.selection
+//   })
+//   .then(function(dbBooking){
+//     res.json(dbBooking)
+//   });
+// });
 
 app.post("/api/users", function(req, res){
   db.User.create({
