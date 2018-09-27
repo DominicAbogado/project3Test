@@ -232,19 +232,32 @@ $(document).ready(function () {
     });
   }
 
-  $(".viewFilter").on("click", function () {
-    if($("#gradeSelect").val()=== 0 && $("connectionSelect").val()===0){
+  function getWorkshopsFilter() {
+    $(".accordion").empty();
+    $.getJSON("/api/workshop/filter/" + $("#connectionSelect").val(), function (data) {
+      // For each one
+
+    });
+  }
+
+  $(".viewGrade").on("click", function () {
+    if ($("#gradeSelect").val() === "0" && $("#connectionSelect").val() === "0"){
       getWorkshops();
     } else if
-   ($("#gradeSelect").val() > 0 && $("connectionSelect").val()===0) {
+   ($("#gradeSelect").val() !== "0" && $("#connectionSelect").val() === "0") {
       getWorkshopGrade()
-    }
-    else if
-   ($("#gradeSelect").val() === 0 && $("connectionSelect").val()===typeOf(String)) {
-      getWorkshopConnection()
+    } else if 
+    ($("#connectionSelect").val() !== "0" && $("#gradeSelect").val() === "0")
+    {
+      getWorkshopConnection();
+    } else {
+      getWorkshops();
     }
   });
 
+  $('.viewConnection').on('click', () => {
+    getWorkshopsFilter();
+  })
 
   $('.viewAll').on('click', () => {
     console.log("working")

@@ -52,6 +52,7 @@ app.get("/api/:_id", function(req, res) {
 
 app.get("/api/workshop/offering/:grade", function(req, res) {
   console.log(req.params.grade);
+  console.log('kfnbskf')
   db.Workshop.find({
     "offerings.grade":req.params.grade
   })
@@ -73,6 +74,20 @@ app.get("/api/workshop/connection/:connection", function(req, res) {
     .catch(function(err) {
       res.json(err);
     });
+});
+
+app.get("/api/workshop/filter/:filter", function(req, res) {
+  // db.Workshop.find({
+  //   $and: [{"offerings.connection":req.params.connection}, {"offerings.grade":req.params.grade}]
+  // })
+  //   .then(function(results) {
+  //     res.json(results);
+  //   })
+  //   .catch(function(err) {
+  //     res.json(err);
+  //   });
+  console.log(req.params.connection)
+  console.log(req.params.grade)
 });
 
 //USER PROFILE

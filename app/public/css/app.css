@@ -3,6 +3,9 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
     color:#021D5A;
 }
+.jumpboHeader{
+    text-align: center;
+}
 
 h5{
     font-weight: bold;
