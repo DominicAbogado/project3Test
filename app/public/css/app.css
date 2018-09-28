@@ -1,10 +1,25 @@
 body{
-
+    background-image:url("../images/uoftbackground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
     font-family: 'Roboto Condensed', sans-serif;
     color:#021D5A;
 }
-.jumpboHeader{
-    text-align: center;
+a{
+    color: white;
+}
+
+.jumbotron{
+    opacity:0.8
+}
+
+.innterOpacity{
+    opacity: 1;
+}
+
+#searchBtn{
+    margin-left:15px;
 }
 
 h5{
@@ -31,3 +46,4 @@ label{
 .gradeDesc, .topicDesc, .curriculumDesc{
     margin-bottom: 20px;
 }
+

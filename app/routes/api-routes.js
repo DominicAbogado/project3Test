@@ -76,18 +76,19 @@ app.get("/api/workshop/connection/:connection", function(req, res) {
     });
 });
 
-app.get("/api/workshop/filter/:filter", function(req, res) {
-  // db.Workshop.find({
-  //   $and: [{"offerings.connection":req.params.connection}, {"offerings.grade":req.params.grade}]
-  // })
-  //   .then(function(results) {
-  //     res.json(results);
-  //   })
-  //   .catch(function(err) {
-  //     res.json(err);
-  //   });
-  console.log(req.params.connection)
-  console.log(req.params.grade)
+app.get("/api/workshop/grade/:grade/:connection", function(req, res) {
+  db.Workshop.find({
+    $and: [{"offerings.connection":req.params.connection}, {"offerings.grade":req.params.grade}]
+  })
+    .then(function(results) {
+      console.log(results);
+      res.json(results);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+  console.log(req.params.connection);
+  console.log(req.params.grade);
 });
 
 //USER PROFILE
@@ -106,7 +107,64 @@ app.post("/api/users", function (req, res) {
   res.sendStatus(200);
 });
 
+app.get("/saved-workshops/:id", function (req, res) {
+  // Grab every document in the Articles collection
+  db.Workshop.find({_id: req.params.id})
+    .then(function (dbArticle) {
+      // If we were able to  successfully find Articles, send them back to the client
+      res.json(dbArticle);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
 
+app.get("/saved-workshops", function (req, res) {
+  // Grab every document in the Articles collection
+  db.Workshop.find({saved:true})
+    .then(function (dbWorkshop) {
+      // If we were able to successfully find Articles, send them back to the client
+      res.json(dbWorkshop);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+
+app.post("/addsave/:id", function (req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  db.Workshop.findOneAndUpdate({
+      _id: req.params.id
+    }, {$set: {saved: true}}, {new:true})
+    .then(function (dbWorkshop) {
+      // If we were able to successfully find an Article with the given id, send it back to the client
+      res.json(dbWorkshop);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+
+// REMOVING ARTICLES FROM SAVED
+app.post("/remove/:id", function (req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  db.Workshop.findOneAndUpdate({
+      _id: req.params.id
+    }, {$set: {saved: false}}, {new:true})
+    .then(function (dbWorkshop) {
+      // If we were able to successfully find an Article with the given id, send it back to the client
+      res.json(dbWorkshop);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
 
 // app.post("/api/bookings", function(req,res){
 //   db.Booking.create({

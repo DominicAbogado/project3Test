@@ -13,88 +13,72 @@
 
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <div class="row">
-              <h1 class="display-4 jumboHeader">Workshops at a glance!</h1>
+    <div class="jumbotron jumbotron-fluid outerOpacity">
+      <h1 class="display-4">Workshops at a glance!</h1>
+      <div class="row innerOpacity">
+        <div class="col-lg-6 innerOpacity">
+          <p class="lead">View our Workshop offerings below:</p>
+          <div class="searchFields col-lg-12">
+            <div class="form-group col-md-4 workshopSearch">
+              <label for="inputState">Grade</label>
+              <select id="gradeSelect" class="form-control workshopSearch">
+                <option selected value="0">Choose...</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
             </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <p class="lead">View our Workshop offerings below:</p>
-                <div class="searchFields col-lg-12">
-                  <div class="form-group col-md-4 workshopSearch">
-                    <label for="inputState">Grade</label>
-                    <select id="gradeSelect" class="form-control workshopSearch">
-                      <option selected value="0">Choose...</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-8 workshopSearch">
-                    <label for="inputState">Engineering Stream</label>
-                    <select id="connectionSelect" class="form-control">
-                      <option selected value="0">Choose...</option>
-                      <option value="Aerospace%20Engineering">Aerospace Engineering</option>
-                      <option value="Chemistry%20%2F%20Chemical%20Engineering">Chemistry / Chemical Engineering</option>
-                      <option value="Civil%20Engineering">Civil Engineering</option>
-                      <option value="Electrical%20Engineering">Electrical Engineering</option>
-                      <option value="Mechanical%20Engineering">Mechanical Engineering</option>
-                    </select>
-                  </div>
-                </div>
-
-                <button type="button" class="btn btn-primary viewAll">View All</button>
-                <button type="button" class="btn btn-primary viewGrade">View Grade</button>
-                <button type="button" class="btn btn-primary viewConnection">View Connection</button>
-              </div>
-              <div class="col-lg-6">
-                <p>
-                  We link our workshops to Ontario curriculum expectations and are pleased to offer the following
-                  workshops to grade 3 to 8 classes. For pricing and booking instructions, please see the back
-                  cover. Each workshop can accommodate a maximum of 30 students and is offered at your school.
-                  Workshops for 2018 are offered between May 9 and June 15, 2018
-                </p>
-                <br>
-                <p>
-                  Our workshops are designed to be scalable for all grades from 3-8 and can be customized for different
-                  grades.
-                  Please contact us if you have a specic request.
-                </p>
-              </div>
+            <div class="form-group col-md-8 workshopSearch">
+              <label for="inputState">Engineering Stream</label>
+              <select id="connectionSelect" class="form-control">
+                <option selected value="0">Choose...</option>
+                <option value="Aerospace%20Engineering">Aerospace Engineering</option>
+                <option value="Chemistry%20%2F%20Chemical%20Engineering">Chemistry / Chemical Engineering</option>
+                <option value="Civil%20Engineering">Civil Engineering</option>
+                <option value="Electrical%20Engineering">Electrical Engineering</option>
+                <option value="Mechanical%20Engineering">Mechanical Engineering</option>
+              </select>
             </div>
+            <button type="button" id="searchBtn" class="btn btn-primary viewWorkshops">Search</button>
+            <button type="button" id="searchBtn" class="btn btn-primary bookingRoute"><a href="booking.html">Booking</a></button>
           </div>
+
+
         </div>
-        <div>
-          <div class="testClass">
-            <div class="accordion"></div>
-
-          </div>
+        <div class="col-lg-6">
+          <p>
+            We link our workshops to Ontario curriculum expectations and are pleased to offer the following
+            workshops to grade 3 to 8 classes. Each workshop can accommodate a maximum of 30 students and is
+            offered at your school.
+          </p>
+          <br>
+          <p>
+            Our workshops are designed to be scalable for all grades from 3-8 and can be customized for different
+            grades.
+            Please contact us if you have a specic request.
+          </p>
         </div>
       </div>
     </div>
-
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <div id="firebaseui-auth-container"></div>
-        <div id="loader"></div>
-      </div>
+    <div>
+      <div class="accordion"></div>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/js/app.js"></script>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 
 </html>

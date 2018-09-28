@@ -1,4 +1,8 @@
-body{
+body {
     background-image: url("../images/uoftbackground.jpg");
-    background-size:100%
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #021D5A;
 }
