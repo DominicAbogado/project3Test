@@ -1,10 +1,9 @@
-function getWorkshopsSaved() {
-  $(".accordion").empty();
+function getSaved(){
+  $(".showBooking").empty();
   $.getJSON("/saved-workshops", function (data) {
-    // For each one
+    $(".showBooking").append(`<div class="bookingTitle><h3>Booked Workshops</h3></div>`)
     for (var i = 0; i < data.length; i++) {
-      // Display the apropos information on the page
-      $(".accordion").append(`
+      $(".showBooking").append(   `
       <div class="card">
       <div class="card-header btn btn-link" data-toggle="collapse" id="heading-${data[i]._id}" data-target="#${data[i]._id}">
         <h5 class="mb-0">
@@ -32,6 +31,7 @@ function getWorkshopsSaved() {
             <h5>Curriculum: </h5>
               ${data[i].offerings[0].curriculum}
           </div>
+          <button>
           </div>
 
           <div class="workshopDetails col-lg-4">
@@ -61,34 +61,47 @@ function getWorkshopsSaved() {
           </div>
           </div>
           </div>
-
-
           <div class="connectionDesc desc">
-            <h3>Engineering Connection:
+            <h3>Engineering Connection: </h3>
               ${data[i].offerings[0].connection}
-              </h3>
               <br>
-              <button data-id="${data[i]._id}" class="btn btn-primary addBtn">Add to Booking</button>
           </div>
       </div>
     </div>
    </div>
-      `);
+      `)
     }
-  });
-};
-
+  })
+}
 function getProfile() {
   $(".showProfile").empty();
   $.getJSON("/api/users", function (data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
+      var booking = data[i];
       // Display the apropos information on the page
-      $(".showProfile").append(`<h1>${data[i].firstName}</h1>`
-);
+
+      $(".showProfile").append(`
+      <div class="bookingDetails">
+        <h3>Hello ${data[i].firstName} ${data[i].lastName}!</h3>
+        <h3>Your booking request is as follows: </h3>
+        <h4>School: ${booking.schoolName}</h4>
+        <h4>
+        Address: ${booking.schoolAddress}, ${booking.city}, ${booking.postal} 
+        </h4>
+     </div>
+     `);
     }
   });
 };
+
+$(document).on("click", ".submitRequest", function(){
+  $(".bookingInformation").empty();
+  $(".bookingInformation").append(`<h1>Your request is on it's way</h1>`)
+})
+
+getProfile();
+getSaved();
 
 $(document).on("click", "#removeSaved", function () {
   // Grab the id associated with the article from the submit button

@@ -7,6 +7,8 @@ const profileSchema = new Schema({
   email: { type: String, required: true },
   contactNum: { type: String, required: true },
   schoolName: { type: String, required: true },
+  startTime: { type: String},
+  endTime:  { type: String},
   schoolAddress: { type: String, required: true },
   city: { type: String, required: true },
   province: { type: String, required: true },

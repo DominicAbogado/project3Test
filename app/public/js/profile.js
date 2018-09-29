@@ -10,6 +10,8 @@ $(".add-btn").on("click", function(event){
         contactNum: $("#contactNumberProfile").val().trim(),
         schoolName: $("#schoolNameProfile").val(),
         schoolAddress: $("#schoolAddressProfile").val(),
+        startTime: $("#startTimeProfile").val(),
+        endTime:$("#endTimeProfile").val(),
         city: $("#cityProfile").val().trim(),
         province: $("#provinceProfile").val().trim(),
         postal: $("#postalProfile").val().trim(),
@@ -26,6 +28,8 @@ $(".add-btn").on("click", function(event){
     $("#contactNumberProfile").val("");
     $("#schoolNameProfile").val("");
     $("#schoolAddressProfile").val("");
+    $("#startTimeProfile").val("")
+    $("#endTimeProfile").val("")
     $("#cityProfile").val("");
     $("#provinceProfile").val("");
     $("#postalProfile").val("");

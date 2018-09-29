@@ -10,6 +10,8 @@ $(document).ready(function () {
             email: $("#emailProfile").val().trim(),
             contactNum: $("#contactNumberProfile").val().trim(),
             schoolName: $("#schoolNameProfile").val(),
+            startTime: $("#startTimeProfile").val(),
+            endTime: $("#endTimeProfile").val(),
             schoolAddress: $("#schoolAddressProfile").val(),
             city: $("#cityProfile").val().trim(),
             province: $("#provinceProfile").val().trim(),
@@ -18,7 +20,6 @@ $(document).ready(function () {
 
         $.post("/api/users", newProfile, function (data) {
             console.log(data);
-            console.log("working")
         });
 
         $("#firstNameProfile").val("");
@@ -27,6 +28,8 @@ $(document).ready(function () {
         $("#contactNumberProfile").val("");
         $("#schoolNameProfile").val("");
         $("#schoolAddressProfile").val("");
+        $("#startTimeProfile").val("");
+        $("#endTimeProfile").val("");
         $("#cityProfile").val("");
         $("#provinceProfile").val("");
         $("#postalProfile").val("");

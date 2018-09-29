@@ -337,7 +337,7 @@ $(document).ready(function () {
 $(document).on("click", ".addBtn", function(){
 
   var thisId = $(this).attr("data-id");
-  alert(thisId +" Saved!")
+  console.log(thisId)
   
   $.ajax({
     method:"POST",
