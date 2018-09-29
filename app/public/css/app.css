@@ -1,20 +1,45 @@
 body{
-    background-image:url("../images/uoftbackground.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
-    color:#021D5A;
+    font: normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:white;
+}
+
+.container{
+    z-index:100
+}
+.solar-syst{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    z-index:1
+}
+
+h1{
+    text-align:center;
+    font-size:60px
 }
 a{
     color: white;
+}
+.query{
+    text-align:center;
+}
+
+.card-body{
+    color:#1C2837
+}
+.outerOpacity:hover{
+    opacity:0.75;
 }
 
 .jumbotron{
     opacity:0.8
 }
 
-.innterOpacity{
+.outerOpacity{
+    opacity: 0.5
+}
+
+.innerOpacity{
     opacity: 1;
 }
 

@@ -1,10 +1,10 @@
 function getWorkshopsSaved() {
-    $(".accordion").empty();
-    $.getJSON("/saved-workshops", function (data) {
-      // For each one
-      for (var i = 0; i < data.length; i++) {
-        // Display the apropos information on the page
-        $(".accordion").append(`
+  $(".accordion").empty();
+  $.getJSON("/saved-workshops", function (data) {
+    // For each one
+    for (var i = 0; i < data.length; i++) {
+      // Display the apropos information on the page
+      $(".accordion").append(`
       <div class="card">
       <div class="card-header btn btn-link" data-toggle="collapse" id="heading-${data[i]._id}" data-target="#${data[i]._id}">
         <h5 class="mb-0">
@@ -14,7 +14,7 @@ function getWorkshopsSaved() {
         </h5>
       </div>
       <div id="${data[i]._id}" class="collapse" aria-labelledby="heading-${data[i]._id}" data-parent="#accordion">
-        <div class="card-body workshopDescriptions">
+        <div class="card-body workshopDescriptions innerOpacity">
           <div id="descriptionDesc">
             <h3>${data[i].title}</h3>
              ${data[i].description}
@@ -68,38 +68,38 @@ function getWorkshopsSaved() {
               ${data[i].offerings[0].connection}
               </h3>
               <br>
-              <button id="removeSaved" data-id="${data[i]._id}">Remove from Booking</button>
+              <button data-id="${data[i]._id}" class="btn btn-primary addBtn">Add to Booking</button>
           </div>
       </div>
     </div>
    </div>
       `);
+    }
+  });
+};
+
+$(document).on("click", "#removeSaved", function () {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+
+  // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+      method: "POST",
+      url: "/remove/" + thisId,
+      data: {
+        // Value taken from title input
+        saved: false,
       }
+    })
+    // With that done
+    .then(function (data) {
+      // Log the response
+      console.log(data);
+      // Empty the notes section
     });
-  };
-
-  $(document).on("click", "#removeSaved", function () {
-    // Grab the id associated with the article from the submit button
-    var thisId = $(this).attr("data-id");
-
-    // Run a POST request to change the note, using what's entered in the inputs
-    $.ajax({
-            method: "POST",
-            url: "/remove/" + thisId,
-            data: {
-                // Value taken from title input
-                saved: false,
-            }
-        })
-        // With that done
-        .then(function (data) {
-            // Log the response
-            console.log(data);
-            // Empty the notes section
-        });
-    getSaved();
+  getSaved();
 });
 
-  $(".viewSaved").on("click", function(){
-      getWorkshopsSaved()
-  })
+$(".viewSaved").on("click", function () {
+  getWorkshopsSaved()
+})

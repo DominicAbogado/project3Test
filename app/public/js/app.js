@@ -17,7 +17,7 @@ $(document).ready(function () {
         </h5>
       </div>
       <div id="${data[i]._id}" class="collapse" aria-labelledby="heading-${data[i]._id}" data-parent="#accordion">
-        <div class="card-body workshopDescriptions">
+        <div class="card-body workshopDescriptions innerOpacity">
           <div id="descriptionDesc">
             <h3>${data[i].title}</h3>
              ${data[i].description}
@@ -100,7 +100,7 @@ $(document).ready(function () {
         </h5>
       </div>
       <div id="${data[i]._id}" class="collapse" aria-labelledby="heading-${data[i]._id}" data-parent="#accordion">
-        <div class="card-body workshopDescriptions">
+        <div class="card-body workshopDescriptions innerOpacity">
           <div id="descriptionDesc">
             <h3>${data[i].title}</h3>
              ${data[i].description}
@@ -181,7 +181,7 @@ $(document).ready(function () {
         </h5>
       </div>
       <div id="${data[i]._id}" class="collapse" aria-labelledby="heading-${data[i]._id}" data-parent="#accordion">
-        <div class="card-body workshopDescriptions">
+        <div class="card-body workshopDescriptions innerOpacity">
           <div id="descriptionDesc">
             <h3>${data[i].title}</h3>
              ${data[i].description}
@@ -244,7 +244,6 @@ $(document).ready(function () {
     });
   }
 
-
   function getWorkshopsFilter() {
     $(".accordion").empty();
     $.getJSON("/api/workshop/grade/" + $("#gradeSelect").val() + '/' + $("#connectionSelect").val(), function (data) {
@@ -255,7 +254,7 @@ $(document).ready(function () {
         // Display the apropos information on the page
         $(".accordion").append(
           `
-      <div class="card outerOpacity">
+      <div class="card">
       <div class="card-header btn btn-link" data-toggle="collapse" id="heading-${data[i]._id}" data-target="#${data[i]._id}">
         <h5 class="mb-0">
           <button class="btn btn-link" data-toggle="collapse" data-target="#${data[i]._id}" aria-expanded="true" aria-controls="${data[i]._id}">
@@ -264,7 +263,7 @@ $(document).ready(function () {
         </h5>
       </div>
       <div id="${data[i]._id}" class="collapse" aria-labelledby="heading-${data[i]._id}" data-parent="#accordion">
-        <div class="card-body workshopDescriptions">
+        <div class="card-body workshopDescriptions innerOpacity">
           <div id="descriptionDesc">
             <h3>${data[i].title}</h3>
              ${data[i].description}
@@ -350,6 +349,10 @@ $(document).on("click", ".addBtn", function(){
   .then(function(data){
     console.log(data)
   });
+})
+
+$(".seeSpace").on("click", function(){
+  $(".accordion").empty();
 })
 
   $(".viewWorkshops").on("click", function () {
