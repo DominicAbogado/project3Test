@@ -14,13 +14,78 @@
 
 <body>
 
+
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12">
         <h1>In School Workshops</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="col-lg-12 register">
+      <form>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name</label>
+              <input type="firstNameProfile" class="form-control firstNameProfile profile" id="firstNameProfile">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Last Name</label>
+              <input type="lastNameProfile" class="form-control lastNameProfile profile" id="lastNameProfile">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="firstNameProfile" class="form-control emailProfile profile" id="emailProfile">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Preferred Contact Number</label>
+              <input type="email" class="form-control numberProfile profile" id="contactNumberProfile">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">School Name</label>
+              <input type="email" class="form-control schoolNameProfile profile" id="schoolNameProfile">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">School Address</label>
+              <input type="email" class="form-control schoolAddressProfile Profile" id="schoolAddressProfile">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control cityProfile" id="cityProfile">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputZip">Province</label>
+                <input type="text" class="form-control provinceProfile" id="provinceProfile">
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="inputZip">Postal Code</label>
+                <input type="text" class="form-control postalProfile" id="postalProfile">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary add-btn">Submit</button>
+        <button class="btn btn-primary showWorkshops"><a href="workshop.html">Proceed to workshops</a></button>
+      </form>
+    </div>
+    <!-- <div class="row showWorkshop">
       <div class="col-lg-6">
         <div class="searchFields">
           <div class="form-group col-md-4 workshopSearch">
@@ -64,7 +129,7 @@
           Please contact us if you have a specic request.
         </p>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-lg-12">
         <div class="accordion outerOpacity"></div>
@@ -94,7 +159,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="/js/home.js"></script>
 </body>
 
 </html>

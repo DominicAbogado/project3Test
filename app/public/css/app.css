@@ -12,6 +12,15 @@ body{
     width: 100%;
     z-index:1
 }
+.register{
+    opacity:0.5
+}
+.register:hover{
+    opacity:0.9
+}
+#afterRegister{
+    visibility:hidden;
+}
 
 h1{
     text-align:center;

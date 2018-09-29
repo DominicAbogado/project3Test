@@ -78,6 +78,18 @@ function getWorkshopsSaved() {
   });
 };
 
+function getProfile() {
+  $(".showProfile").empty();
+  $.getJSON("/api/users", function (data) {
+    // For each one
+    for (var i = 0; i < data.length; i++) {
+      // Display the apropos information on the page
+      $(".showProfile").append(`<h1>${data[i].firstName}</h1>`
+);
+    }
+  });
+};
+
 $(document).on("click", "#removeSaved", function () {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
@@ -102,4 +114,8 @@ $(document).on("click", "#removeSaved", function () {
 
 $(".viewSaved").on("click", function () {
   getWorkshopsSaved()
+})
+
+$(".viewProfile").on("click", function () {
+  getProfile()
 })

@@ -13,7 +13,6 @@ $(".add-btn").on("click", function(event){
         city: $("#cityProfile").val().trim(),
         province: $("#provinceProfile").val().trim(),
         postal: $("#postalProfile").val().trim(),
-        uid: uid
     };
 
     $.post("/api/users", newProfile, function(data){
